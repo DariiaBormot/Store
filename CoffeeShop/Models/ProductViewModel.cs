@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CoffeeShopBL.Models
+namespace CoffeeShop.Models
 {
-    public class ProductBL
+    public class ProductViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -12,9 +13,9 @@ namespace CoffeeShopBL.Models
         public double Price { get; set; }
         public string Image { get; set; }
 
-        public ProductTypeBL ProductType { get; set; }
+        public ProductTypeViewModel ProductType { get; set; }
         public int ProductTypeId { get; set; }
-        public CategoryBL Category { get; set; }
+        public CategoryViewModel Category { get; set; }
         public int CategoryId { get; set; }
     }
 }

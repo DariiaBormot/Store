@@ -1,6 +1,8 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
 using CofeeShopDAL;
+using CoffeeShop.Config;
 using CoffeeShopBL.Config;
 using CoffeeShopBL.Interfaces;
 using CoffeeShopBL.Services;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Collections.Generic;
 
 namespace CoffeeShop
 {
@@ -26,6 +29,7 @@ namespace CoffeeShop
 
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
             services.AddDbContext<CoffeShopContext>(x => 
                     x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
@@ -36,6 +40,10 @@ namespace CoffeeShop
             // Register your own things directly with Autofac
             builder.RegisterType<ProductService>().As<IProductService>();
             builder.RegisterModule<AutofacConfigBL>();
+
+            var config = new MapperConfiguration(cfg => cfg.AddProfiles(
+                        new List<Profile>() { new AutomapperProfileWeb(), new AutomapperProfileBL() }));
+                        builder.Register(c => config.CreateMapper());
 
         }
 
