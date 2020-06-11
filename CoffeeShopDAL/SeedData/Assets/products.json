@@ -1,0 +1,146 @@
+[
+  {
+    "Name": "Thana Toraya",
+    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 20,
+    "Image": "https://localhost:5001/images/ceremony_blue.png",
+    "ProductTypeId": 1,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Ethiopia Ehelchele",
+    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
+    "Price": 15,
+    "PictureUrl": "https://localhost:5001/images/ceremony_green.png",
+    "ProductTypeId": 1,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Destroyer",
+    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+    "Price": 18,
+    "Image": "https://localhost:5001/images/ceremony_orange.png",
+    "ProductTypeId": 1,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Mass Appeal",
+    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Price": 13,
+    "Image": "https://localhost:5001/images/ceremony_pink.png",
+    "ProductTypeId": 1,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Columbia Janamejoy",
+    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 17,
+    "Image": "https://localhost:5001/images/ceremony_yellow.png",
+    "ProductTypeId": 1,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Honeycrisp Apple",
+    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
+    "Price": 12,
+    "Image": "https://localhost:5001/images/ceremony_blue.png",
+    "ProductTypeId": 1,
+    "CategoryId": 5
+  },
+  {
+    "Name": "Minas Gerais",
+    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 11,
+    "Image": "https://localhost:5001/images/ceremony_green.png",
+    "ProductTypeId": 2,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Cauca",
+    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+    "Price": 18,
+    "Image": "https://localhost:5001/images/ceremony_orange.png",
+    "ProductTypeId": 2,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Purple React Woolen Hat",
+    "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 15,
+    "Image": "https://localhost:5001/images/ceremony_pink.png",
+    "ProductTypeId": 2,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Antithesis",
+    "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
+    "Price": 18,
+    "Image": "https://localhost:5001/images/ceremony_yellow.png",
+    "ProductTypeId": 4,
+    "CategoryId": 3
+  },
+  {
+    "Name": "Burundi Butegana ",
+    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Price": 15,
+    "Image": "https://localhost:5001/images/ceremony_blue.png",
+    "ProductTypeId": 4,
+    "CategoryId": 3
+  },
+  {
+    "Name": "Healthcare Heroes ",
+    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
+    "Price": 16,
+    "Image": "https://localhost:5001/images/ceremony_green.png",
+    "ProductTypeId": 4,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Green React Gloves",
+    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Price": 14,
+    "Image": "https://localhost:5001/images/ceremony_orange.png",
+    "ProductTypeId": 4,
+    "CategoryId": 4
+  },
+  {
+    "Name": "Ethiopia Yabity Koba",
+    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+    "Price": 25,
+    "Image": "https://localhost:5001/images/ceremony_pink.png",
+    "ProductTypeId": 3,
+    "CategoryId": 6
+  },
+  {
+    "Name": "Core Red Boots",
+    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
+    "Price": 18,
+    "Image": "https://localhost:5001/images/ceremony_yellow.png",
+    "ProductTypeId": 3,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Summer Annuals",
+    "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
+    "Price": 16,
+    "Image": "https://localhost:5001/images/ceremony_blue.png",
+    "ProductTypeId": 3,
+    "CategoryId": 2
+  },
+  {
+    "Name": "Sugar Cookie",
+    "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
+    "Price": 15,
+    "Image": "https://localhost:5001/images/ceremony_green.png",
+    "ProductTypeId": 3,
+    "CategoryId": 1
+  },
+  {
+    "Name": "Bright Peach",
+    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
+    "Price": 18,
+    "Image": "https://localhost:5001/images/ceremony_pink.png",
+    "ProductTypeId": 3,
+    "CategoryId": 1
+  }
+]

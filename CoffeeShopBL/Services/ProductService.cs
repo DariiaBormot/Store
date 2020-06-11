@@ -1,8 +1,10 @@
-﻿using CofeeShopDAL;
-using CofeeShopDAL.Interfaces;
-using CofeeShopDAL.Repositories;
+﻿using AutoMapper;
 using CoffeeShopBL.Interfaces;
 using CoffeeShopBL.Models;
+using CoffeeShopDAL.Entities;
+using CoffeeShopDAL.Filters.FilterImplementations;
+using CoffeeShopDAL.Filters.FilterModels;
+using CoffeeShopDAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,39 +13,53 @@ using System.Threading.Tasks;
 
 namespace CoffeeShopBL.Services
 {
-    public class ProductService : IProductService
+    public class ProductService : GenericService<ProductBL, Product>, IProductService
     {
-        private readonly IProductRepository _repository;
-        public ProductService(IProductRepository repository) 
+        private readonly IGenericRepository<Product> _repository;
+        private readonly IMapper _mapper;
+
+        public ProductService(IGenericRepository<Product> repository, IMapper mapper) : base(repository)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-
-        public async Task<IEnumerable<ProductBL>> GetAll()
+        public async Task<IEnumerable<ProductBL>> GetListByFilter(ProductFilterModelBL filter) 
         {
-
-            var products = await _repository.GetAll();
-
-            var result = products.Select(x => new ProductBL
-            {
-                Id = x.Id,
-                Name = x.Name
-            });
-            return result;
+            var filterModel = _mapper.Map<ProductFilterModel>(filter);
+            var filterDAL = new ProductFilter(filterModel);
+            var productsDAL = await _repository.GetListByFilter(filterDAL);
+            var productsBL = _mapper.Map<IEnumerable<ProductBL>>(productsDAL);
+            return productsBL;
         }
 
-        public async Task<ProductBL> GetById(int id)
+        public async Task<ProductBL> GetItemByFilter(ProductFilterModelBL filter)
         {
-            var product = await _repository.GetById(id);
+            var filterModel = _mapper.Map<ProductFilterModel>(filter);
+            var filterDAL = new ProductFilter(filterModel);
+            var productDAL = await _repository.GetEntityByFilter(filterDAL);
+            var productBL = _mapper.Map<ProductBL>(productDAL);
+            return productBL;
+        }
 
-            var result =  new ProductBL
-            {
-                Id = product.Id,
-                Name = product.Name
-            };
+        public override ProductBL Map(Product entity)
+        {
+            return _mapper.Map<ProductBL>(entity);
+        }
 
-            return result;
+        public override Product Map(ProductBL blmodel)
+        {
+            return _mapper.Map<Product>(blmodel);
+        }
+
+        public override IEnumerable<ProductBL> Map(IList<Product> entities)
+        {
+            return _mapper.Map<IEnumerable<ProductBL>>(entities);
+        }
+
+        public override IEnumerable<Product> Map(IList<ProductBL> models)
+        {
+            return _mapper.Map<IEnumerable<Product>>(models);
         }
     }
 }

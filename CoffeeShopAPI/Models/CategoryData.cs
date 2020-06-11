@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace CoffeeShopBL.Models
+namespace CoffeeShopAPI.Models
 {
-    public class CategoryBL
+    public class CategoryData
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
     }
 }

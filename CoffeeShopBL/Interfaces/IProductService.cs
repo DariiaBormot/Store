@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CoffeeShopBL.Interfaces
 {
-    public interface IProductService
+    public interface IProductService : IGenericService<ProductBL>
     {
-        Task<IEnumerable<ProductBL>> GetAll();
-        Task<ProductBL> GetById(int id);
+        Task<IEnumerable<ProductBL>> GetListByFilter(ProductFilterModelBL filter);
+        Task<ProductBL> GetItemByFilter(ProductFilterModelBL filter);
     }
 }

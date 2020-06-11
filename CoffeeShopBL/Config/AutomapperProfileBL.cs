@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using AutoMapper;
-using CofeeShopDAL.Entities;
 using CoffeeShopBL.Models;
+using CoffeeShopDAL.Entities;
+using CoffeeShopDAL.Filters.FilterModels;
 
 namespace CoffeeShopBL.Config
 {
@@ -14,6 +15,7 @@ namespace CoffeeShopBL.Config
             CreateMap<CategoryBL, Category>().ReverseMap();
             CreateMap<ProductTypeBL, ProductType>().ReverseMap();
             CreateMap<ProductBL, Product>().ReverseMap();
+            CreateMap<ProductFilterModelBL, ProductFilterModel>().ReverseMap();
 
         }
     }

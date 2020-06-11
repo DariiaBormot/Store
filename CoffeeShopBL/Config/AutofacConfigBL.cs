@@ -1,11 +1,7 @@
 ﻿using Autofac;
-using CofeeShopDAL.Interfaces;
-using CofeeShopDAL.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-
+using CoffeeShopDAL;
+using CoffeeShopDAL.Interfaces;
+using CoffeeShopDAL.Repositories;
 
 namespace CoffeeShopBL.Config
 {
@@ -13,7 +9,8 @@ namespace CoffeeShopBL.Config
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<ProductRepository>().As<IProductRepository>();
+            builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+            builder.RegisterType<CoffeeShopContext>().InstancePerLifetimeScope();
         }
     }
 }
