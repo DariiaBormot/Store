@@ -33,5 +33,6 @@ namespace CoffeeShopAPI.Controllers
 
             return Ok(categoriesData);
         }
+
     }
 }

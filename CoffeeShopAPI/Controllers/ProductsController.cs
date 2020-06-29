@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using CoffeeShopAPI.Errors;
 using CoffeeShopAPI.Models;
 using CoffeeShopBL.Interfaces;
 using CoffeeShopBL.Models;
@@ -37,10 +38,14 @@ namespace CoffeeShopAPI.Controllers
             return Ok(productsData);
         }
 
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponce), StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductData>> GetProduct(int id)
         {
             var product = await _productService.GetById(id);
+
+            if (product == null) return NotFound(new ApiResponce(404));
 
             var productData = _mapper.Map<ProductData>(product);
 
