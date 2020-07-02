@@ -24,7 +24,7 @@ namespace CoffeeShopBL.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<ProductBL>> GetListByFilter(ProductFilterModelBL filter) 
+        public async Task<IEnumerable<ProductBL>> GetProductsByFilter(ProductFilterModelBL filter)
         {
             var filterModel = _mapper.Map<ProductFilterModel>(filter);
             var filterDAL = new ProductFilter(filterModel);
@@ -40,6 +40,14 @@ namespace CoffeeShopBL.Services
             var productDAL = await _repository.GetEntityByFilter(filterDAL);
             var productBL = _mapper.Map<ProductBL>(productDAL);
             return productBL;
+        }
+
+        public async Task<int> GetProductsCount(ProductFilterModelBL filter)
+        {
+            var filterModel = _mapper.Map<ProductFilterModel>(filter);
+            var filterDAL = new ProductFilterCountProducts(filterModel);
+            var productCountDAL = await _repository.Count(filterDAL);
+            return productCountDAL;
         }
 
         public override ProductBL Map(Product entity)

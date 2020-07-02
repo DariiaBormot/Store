@@ -15,6 +15,6 @@ namespace CoffeeShopDAL.Interfaces
         Task Update(T entity);
         Task<T> GetEntityByFilter(IFilter<T> expression);
         Task<IEnumerable<T>> GetListByFilter(IFilter<T> expression);
-        int Count(IFilter<T> filter);
+        Task<int> Count(IFilter<T> filter);
     }
 }

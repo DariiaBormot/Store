@@ -64,9 +64,9 @@ namespace CoffeeShopDAL.Repositories
             return await ApplyFilters(expression).ToListAsync();
         }
 
-        public int Count(IFilter<T> filter)
+        public async Task<int> Count(IFilter<T> filter)
         {
-            return ApplyFilters(filter).Count();
+            return await ApplyFilters(filter).CountAsync();
         }
 
         private IQueryable<T> ApplyFilters(IFilter<T> expression)

@@ -26,16 +26,27 @@ namespace CoffeeShopAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductData>>> GetProducts()
+        public async Task<ActionResult<Pagination<ProductData>>> GetProducts(
+            [FromQuery]ProductFilterModelData filterData)
         {
-            var tempTestValue = new ProductFilterModelData();
-            var testfilter = _mapper.Map<ProductFilterModelBL>(tempTestValue);
 
-            var products = await _productService.GetListByFilter(testfilter);
+            var filterBL = _mapper.Map<ProductFilterModelBL>(filterData);
+
+            var products = await _productService.GetProductsByFilter(filterBL);
 
             var productsData = _mapper.Map<IEnumerable<ProductData>>(products);
 
-            return Ok(productsData);
+            var countProducts = await _productService.GetProductsCount(filterBL);
+
+            var productsToReturn = new Pagination<ProductData>
+            {
+                Count = countProducts,
+                Data = productsData,
+                PageIndex = filterData.PageIndex,
+                PageSize = filterData.PageSize
+            };
+
+            return Ok(productsToReturn);
         }
 
         [ProducesResponseType(StatusCodes.Status200OK)]

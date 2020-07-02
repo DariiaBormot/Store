@@ -59,6 +59,14 @@ namespace CoffeeShopAPI
             });
 
             services.AddSwaggerDocumentation();
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44348");
+                });
+            });
+
 
 
         }
@@ -69,8 +77,6 @@ namespace CoffeeShopAPI
             builder.RegisterType<CategoryService>().As<ICategoryService>();
             builder.RegisterType<ProductTypeService>().As<IProductTypeService>();
             builder.RegisterModule<AutofacConfigBL>();
-
-
 
             var config = new MapperConfiguration(cfg => cfg.AddProfiles(
                         new List<Profile>() { new AutomapperProfileWebAPI(), new AutomapperProfileBL() }));
@@ -91,6 +97,8 @@ namespace CoffeeShopAPI
             app.UseRouting();
 
             app.UseStaticFiles();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

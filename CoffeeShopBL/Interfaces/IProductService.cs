@@ -8,7 +8,8 @@ namespace CoffeeShopBL.Interfaces
 {
     public interface IProductService : IGenericService<ProductBL>
     {
-        Task<IEnumerable<ProductBL>> GetListByFilter(ProductFilterModelBL filter);
+        Task<IEnumerable<ProductBL>> GetProductsByFilter(ProductFilterModelBL filter);
         Task<ProductBL> GetItemByFilter(ProductFilterModelBL filter);
+        Task<int> GetProductsCount(ProductFilterModelBL filter);
     }
 }
