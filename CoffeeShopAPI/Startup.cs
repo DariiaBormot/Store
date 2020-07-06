@@ -59,13 +59,21 @@ namespace CoffeeShopAPI
             });
 
             services.AddSwaggerDocumentation();
-            services.AddCors(opt =>
+
+            //services.AddCors(opt =>
+            //{
+            //    opt.AddPolicy("CorsPolicy", policy =>
+            //    {
+            //        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44348");
+            //    });
+            //});
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             {
-                opt.AddPolicy("CorsPolicy", policy =>
-                {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44348");
-                });
-            });
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
 
 
