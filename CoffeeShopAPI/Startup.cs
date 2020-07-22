@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Autofac;
 using AutoMapper;
 using CoffeeShopAPI.Config;
@@ -14,14 +12,10 @@ using CoffeeShopBL.Services;
 using CoffeeShopDAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 
 namespace CoffeeShopAPI
 {
@@ -59,14 +53,6 @@ namespace CoffeeShopAPI
             });
 
             services.AddSwaggerDocumentation();
-
-            //services.AddCors(opt =>
-            //{
-            //    opt.AddPolicy("CorsPolicy", policy =>
-            //    {
-            //        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:44348");
-            //    });
-            //});
 
             services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
             {
