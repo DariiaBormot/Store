@@ -24,6 +24,7 @@ namespace CoffeeShopAPI.Controllers
         [HttpGet("servererror")]
         public ActionResult GetServerError()
         {
+
             return Ok();
         }
 
