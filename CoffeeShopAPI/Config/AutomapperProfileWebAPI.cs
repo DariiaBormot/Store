@@ -16,6 +16,8 @@ namespace CoffeeShopAPI.Config
                 .ForMember(x => x.ProductType, c => c.MapFrom(s => s.ProductType.Name));
 
             CreateMap<ProductFilterModelData, ProductFilterModelBL>().ReverseMap();
+            CreateMap<CustomerBasketData, CustomerBasketBL>().ReverseMap();
+            CreateMap<BasketItemData, BasketItemBL>().ReverseMap();
         }
     }
 }

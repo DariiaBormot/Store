@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StackExchange.Redis;
 
 namespace CoffeeShopAPI
 {
@@ -34,6 +35,11 @@ namespace CoffeeShopAPI
             services.AddControllers();
             services.AddDbContext<CoffeeShopContext>(x =>
                     x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddSingleton<ConnectionMultiplexer>(c => {
+                var config = ConfigurationOptions.Parse(_configuration.GetConnectionString("Redis"),
+                    true);
+                return ConnectionMultiplexer.Connect(config);
+            });
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.InvalidModelStateResponseFactory = actionContext =>
@@ -70,6 +76,7 @@ namespace CoffeeShopAPI
             builder.RegisterType<ProductService>().As<IProductService>();
             builder.RegisterType<CategoryService>().As<ICategoryService>();
             builder.RegisterType<ProductTypeService>().As<IProductTypeService>();
+            builder.RegisterType<BasketService>().As<IBasketService>();
             builder.RegisterModule<AutofacConfigBL>();
 
             var config = new MapperConfiguration(cfg => cfg.AddProfiles(

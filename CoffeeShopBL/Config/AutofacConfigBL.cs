@@ -11,6 +11,7 @@ namespace CoffeeShopBL.Config
         {
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
             builder.RegisterType<CoffeeShopContext>().InstancePerLifetimeScope();
+            builder.RegisterType<BasketRepository>().As<IBasketRepository>();
         }
     }
 }

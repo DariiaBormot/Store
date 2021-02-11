@@ -16,7 +16,8 @@ namespace CoffeeShopBL.Config
             CreateMap<ProductTypeBL, ProductType>().ReverseMap();
             CreateMap<ProductBL, Product>().ReverseMap();
             CreateMap<ProductFilterModelBL, ProductFilterModel>().ReverseMap();
-
+            CreateMap<CustomerBasketBL, CustomerBasket>().ReverseMap();
+            CreateMap<BasketItemBL, BasketItem>().ReverseMap();
         }
     }
 }
